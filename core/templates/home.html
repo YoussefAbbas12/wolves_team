@@ -1,0 +1,164 @@
+{% load static %}
+<html>
+<head>
+   <title>Wolves Team</title>
+  <img src="{% static 'images/wolves.jpg' %}"
+     style="width: 600px; border-radius: 30px; margin-top: 20px;">
+
+        <h2>🔥 Our Fields</h2>
+<h2>🚀 Join Wolves Team</h2>
+
+<iframe
+    src="https://docs.google.com/forms/d/e/1FAIpQLSdsVYLlsUkx1IL_oi0JKW1ol1lzkPrtIz4PANYIR_diR7w1Vg/viewform?embedded=true"
+    width="100%"
+    height="800"
+    frameborder="0"
+    marginheight="0"
+    marginwidth="0">
+</iframe>
+    <p>TEST: {{ dept.description }}</p>
+<div class="fields">
+
+    <div class="field">💻 Programming</div>
+    <div class="field">📈 Marketing</div>
+    <div class="field">🎨 Graphic Design</div>
+    <div class="field">🧠 Entrepreneurship</div>
+    <div class="field">🔐 Cyber Security</div>
+    <div class="field">🎥 Content Creation</div>
+
+</div>
+    <style>
+        body {
+            background: #0f172a;
+            color: white;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 30px;
+        }
+
+        .leader {
+            border: 2px solid gold;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .departments {
+            margin-top: 40px;
+        }
+
+ .departments {
+    margin-top: 40px;
+}
+
+.departments h2 {
+    margin-top: 30px;
+    color: #38bdf8;
+}
+
+.member {
+    background: #1e293b;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    width: 200px;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.member:hover {
+    transform: scale(1.05);
+}
+        .fields {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.field {
+    background: #0ea5e9;
+    color: white;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 180px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.field:hover {
+    transform: scale(1.05);
+    background: #38bdf8;
+}
+        .departments p {
+    color: #cbd5f5;
+    width: 60%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+    </style>
+
+</head>
+
+<body>
+
+<h1>🐺 Wolves Team</h1>
+<p>We Build. We Create. We Lead.</p>
+
+<!-- 👑 Leader -->
+{% if leader %}
+<div class="leader">
+    <h2>👑 Team Leader</h2>
+    <h3>{{ leader.name }}</h3>
+    <p>{{ leader.role }}</p>
+</div>
+{% endif %}
+
+<!-- 🐺 Team -->
+<div class="departments">
+
+    {% for dept in departments %}
+       <h2>{{ dept.name }}</h2>
+
+<p>
+{% if dept.name == "Programming" %}
+We build websites, applications, and powerful systems using modern technologies.
+
+{% elif dept.name == "Marketing" %}
+We create strategies to grow brands and reach the right audience.
+
+{% elif dept.name == "Graphic Design" %}
+We design logos, visuals, and creative content.
+
+{% elif dept.name == "Cyber Security" %}
+We protect systems and data from cyber threats.
+
+{% elif dept.name == "Content Creation" %}
+We create engaging videos and social media content.
+
+{% elif dept.name == "Entrepreneurship" %}
+We build ideas and turn them into real businesses.
+
+{% endif %}
+</p>
+
+      <div class="members-container">
+
+    {% for member in dept.teammember_set.all %}
+        <div class="member">
+            <h3>{{ member.name }}</h3>
+            <p>{{ member.role }}</p>
+        </div>
+    {% endfor %}
+
+      </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+</html>
