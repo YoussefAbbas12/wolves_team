@@ -23,6 +23,11 @@ venv.bak/
 staticfiles/
 media/
 
+# Node / Vite (Cleanup)
+node_modules/
+.vite/
+dist/
+
 # Editor
 .vscode/
 .idea/
