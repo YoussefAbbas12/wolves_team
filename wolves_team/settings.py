@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-l+*(=em)g4+l@jifzeu_gp+_amzn5f099cjh0%3-9!f+292=dw
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['.onrender.com', '.vercel.app', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['.onrender.com']
 
 
 # Application definition
@@ -122,13 +122,4 @@ import os
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'core/static'),
-]
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-WHITENOISE_USE_FINDERS = True
-WHITENOISE_MANIFEST_STRICT = False
